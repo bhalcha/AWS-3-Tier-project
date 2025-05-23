@@ -42,4 +42,22 @@ click on Create VPC
 
 <img width="1440" alt="Screenshot 2025-05-23 at 1 50 44 PM" src="https://github.com/user-attachments/assets/554326f9-6ebb-4515-86e6-140b50596f82" />
 
+Now go to Subnets and change the name of subnets whch are just created
+<img width="1440" alt="Screenshot 2025-05-23 at 2 10 27 PM" src="https://github.com/user-attachments/assets/0f4f3707-6fb8-4c50-991d-255448223829" />
+
+- we will create 5 security groups for the following reasons
+
+1) for the web server
+2) for internet facing load balancer that is external load balancer
+3) for app servers
+4) for internal load balancers
+5) another one for database
+
+Now go to security groups and click on create security group 
+
+<img width="1440" alt="Screenshot 2025-05-23 at 2 17 05 PM" src="https://github.com/user-attachments/assets/ae27d749-cf80-402c-a1bc-ec5fd7ef516e" />
+
+
+
+
 
