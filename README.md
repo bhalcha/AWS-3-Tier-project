@@ -45,19 +45,32 @@ click on Create VPC
 Now go to Subnets and change the name of subnets whch are just created
 <img width="1440" alt="Screenshot 2025-05-23 at 2 10 27 PM" src="https://github.com/user-attachments/assets/0f4f3707-6fb8-4c50-991d-255448223829" />
 
-- we will create 5 security groups for the following reasons
+- we will create 5 security groups for the following reasons and allow the required traffic which is given below
 
-1) for the web server
-2) for internet facing load balancer that is external load balancer
-3) for app servers
-4) for internal load balancers
-5) another one for database
+1) for the web server -> name:- Web-SG ,inbound rule HTTP but make it custom and add Web-ALB-SG to it and also add another HTTP and add our VPC CIDR block to it :- 
+2) for internet facing load balancer that is external load balancer -> name :- Web-ALB-SG ,inbound rule :- HTTP (port no 80) anywhre 0000/0
+3) for app servers :- name - App-SG :- allow port no 4000 because our application is react base application 
+4) for internal load balancers :- name:- Internal-ALB-SG :- allow port no 80 HTTP but give our VPC cidr block to its IP range dont allow for everyone
+5) another one for database:- name:- RDS-SG  - port 3306 - allow traffic from VPC only so give IP range 
 
 Now go to security groups and click on create security group 
 
 <img width="1440" alt="Screenshot 2025-05-23 at 2 17 05 PM" src="https://github.com/user-attachments/assets/ae27d749-cf80-402c-a1bc-ec5fd7ef516e" />
 
+now we will give name and description accordingly and allow the required traffic ( open the ports ) which is given in our previous points  opt for our own created VPC 
 
+<img width="1440" alt="Screenshot 2025-05-23 at 2 35 38 PM" src="https://github.com/user-attachments/assets/201f646b-cbd9-489d-ae0f-a27b05149cf0" />
+
+
+and then click on create security group and do it likewise for all 5 security groups allowing the required ports 
+
+<img width="1440" alt="Screenshot 2025-05-23 at 2 49 24 PM" src="https://github.com/user-attachments/assets/b903b927-8686-4a8a-9d20-82f0623f8ed4" />
+
+<img width="1440" alt="Screenshot 2025-05-23 at 2 56 48 PM" src="https://github.com/user-attachments/assets/52f57614-8c1c-463a-b3a3-736c78abf3c5" />
+
+<img width="1440" alt="Screenshot 2025-05-23 at 3 03 26 PM" src="https://github.com/user-attachments/assets/9072f9d0-e0da-4c8a-ab26-68a092495760" />
+
+<img width="1440" alt="Screenshot 2025-05-23 at 3 13 44 PM" src="https://github.com/user-attachments/assets/f80ca217-94ec-4a4d-bd6f-a11bc928db47" />
 
 
 
