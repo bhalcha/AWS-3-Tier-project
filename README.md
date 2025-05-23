@@ -72,5 +72,88 @@ and then click on create security group and do it likewise for all 5 security gr
 
 <img width="1440" alt="Screenshot 2025-05-23 at 3 13 44 PM" src="https://github.com/user-attachments/assets/f80ca217-94ec-4a4d-bd6f-a11bc928db47" />
 
+### ✅ Step 2: S3 Bucket and IAM Role Setup
+
+Now go to S3 and click on create bucket and just name the bucket and everything keep by default
+<img width="1440" alt="Screenshot 2025-05-23 at 6 02 23 PM" src="https://github.com/user-attachments/assets/1d46ba5b-8160-4222-8263-b85f76a51e7a" />
+click on create bucket
+
+<img width="1440" alt="Screenshot 2025-05-23 at 6 02 29 PM" src="https://github.com/user-attachments/assets/3839db4d-43b3-4a7a-9879-48049ee77a41" />
+
+Now drag and drop application code files to S3 bucket
+
+<img width="1440" alt="Screenshot 2025-05-23 at 6 06 32 PM" src="https://github.com/user-attachments/assets/7f7dd887-3dc8-4940-8057-11ad91d61394" />
+
+
+Now go to IAM and create a IAM role 
+- change the USE case to EC2 
+
+<img width="1440" alt="Screenshot 2025-05-23 at 6 30 53 PM" src="https://github.com/user-attachments/assets/1dc6ea0d-c86f-436a-9691-b56bcf3cd456" />
+
+click on next 
+- and add the following permissiom
+- AmazonEC2RoleforSSM
+- also give a name to the role
+- then click on create role
+
+### ✅ Step 3: Database Configuration
+Launch and configure an RDS instance to serve as the backend database
+
+- now in subnet groups we will add custom VPC and also add the subnets DB subnets to this subnet groups and this will be attached to the RDS instance 
+
+- select az ap-south-1a and ap-south-1b
+- now select DB1 Subnet and DB2 subnet
+
+<img width="1440" alt="Screenshot 2025-05-23 at 7 02 06 PM" src="https://github.com/user-attachments/assets/2ec53f9e-0934-4b61-bc2e-54febd8856c8" />
+
+## now lets create the database 
+
+- click on create database
+- click on standard create
+- select engine option as MySQL
+- select engine version
+- select the free tier template
+- set the name for database
+- set the password
+- instance type db.t4g.micro
+- and then select to our custom VPC
+- then select our just created subnet group
+- change security group to RDS-SG
+
+<img width="1440" alt="Screenshot 2025-05-23 at 7 42 18 PM" src="https://github.com/user-attachments/assets/9c72bbf4-6438-4085-b04b-a4225e68f7ed" />
+
+<img width="1440" alt="Screenshot 2025-05-23 at 7 42 25 PM" src="https://github.com/user-attachments/assets/03c6e688-6630-4c4e-84bb-6ef7505d561a" />
+
+<img width="1440" alt="Screenshot 2025-05-23 at 7 42 38 PM" src="https://github.com/user-attachments/assets/3a4562a8-18f1-4fd2-999d-c1df3f327b01" />
+
+
+<img width="1440" alt="Screenshot 2025-05-23 at 7 40 41 PM" src="https://github.com/user-attachments/assets/b9476b07-ff6f-45c9-a392-8a3a196c789f" />
+
+
+
+### ✅ Step 4: Application Tier Setup
+in this step we will create EC2 instance for app tier 
+- give name to instance
+- select amazon Linux AMI
+  <img width="1440" alt="Screenshot 2025-05-23 at 7 46 34 PM" src="https://github.com/user-attachments/assets/ac7b1e60-b3d5-43a1-986a-1104847eaeee" />
+
+- instance Type t2.Micro
+- proceed without key pair if you dont want to connect EC2 by any third party app
+
+<img width="1440" alt="Screenshot 2025-05-23 at 7 49 28 PM" src="https://github.com/user-attachments/assets/dc587a76-d691-40bb-a58a-3cad535859b7" />
+
+- EDIT Network settings
+- select Demo VPC
+- select subnet as app1 subnet
+- no need of public IP
+- Select existing security group that we have created (App-SG)
+  <img width="1440" alt="Screenshot 2025-05-23 at 7 54 11 PM" src="https://github.com/user-attachments/assets/d0b6b714-6f39-4054-b2d9-51e1299cf9d1" />
+
+- go to advance details and attach IAM role to instance (role which we have already created
+- Then launch the instance
+  <img width="1440" alt="Screenshot 2025-05-23 at 7 57 54 PM" src="https://github.com/user-attachments/assets/283adb9f-ef9e-42a6-a63c-574c3b27cfd6" />
+
+#### connect to instance and switch to root user
+
 
 
