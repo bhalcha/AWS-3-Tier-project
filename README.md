@@ -155,5 +155,56 @@ in this step we will create EC2 instance for app tier
 
 #### connect to instance and switch to root user
 
+- connect using session manager in aws
 
+- now install mysql client on our instance
+- now configue mysql database using DB endpoints
+- create database named webappdb using sql commands
+- and then we will create a table called tansactions
+- now make any entry to database
+
+- change the dbconfig.js file in and add databse endpoints in it
+
+<img width="1440" alt="Screenshot 2025-05-25 at 1 07 06 PM" src="https://github.com/user-attachments/assets/2523c92e-a921-4298-a3f1-1bb345d34a88" />
+
+<img width="1440" alt="Screenshot 2025-05-25 at 1 07 12 PM" src="https://github.com/user-attachments/assets/3037e2b2-71fb-40f5-b7bb-c394817e3641" />
+
+- now installing and configuring nodejs
+
+- also install nvm (node version manager)
+- install pm2
+- now download the app tier folder from s3 bucket to the instance using s3 cp command
+- then install npm (node port manager) 
+<img width="1440" alt="Screenshot 2025-05-25 at 1 27 25 PM" src="https://github.com/user-attachments/assets/c0238005-fd66-417d-b51a-e81d526e8629" />
+
+
+### creating target groups for internal load balancer 
+
+- and we will opt for our vpc and target for app tier instance
+- <img width="1440" alt="Screenshot 2025-05-25 at 2 15 00 PM" src="https://github.com/user-attachments/assets/0c6343f1-8dcc-4809-bf9d-bd4b23e0f654" />
+
+- now creating the load balancer opt for application load balancer 
+- this is an internal load balancer so we are optiong for internal option
+- select our custom VPC
+- and opt for both availability zones
+- select app1 and app 2 subnet in it because the load balancer is for app tier
+- select security group as internal ALB sg thet we have created for internal sg
+- now select our target group (App-internal-TG)
+- now our intrnal load balancer is created
+
+- make changes in nginx.conf file provide it internal lb DNS name
+
+
+### now lets set up WEb tier resources 
+
+- in  this step i will launch a instance for web-tier
+- give it a name called Web-Tier-Instance
+- select amazon linux ami
+- select a key pair
+- edit network settings and select vpc as our new custom vpc
+- and select public subnets
+- select web-SG existing SG
+- add our EC2 role in advanced settings
+- launch the instance
+- 
 
