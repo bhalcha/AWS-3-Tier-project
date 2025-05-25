@@ -206,5 +206,25 @@ in this step we will create EC2 instance for app tier
 - select web-SG existing SG
 - add our EC2 role in advanced settings
 - launch the instance
-- 
+- connect to instance
+- copy web tier code file from s3 using s3 cp command
+- now npm install into web tier folder
+- now npm run build
+- install nginx to our instance
+- update the nginx configuration
+- after configuration restart the nginx
+- and allow all traffic in web tier instance SG
+
+## now creating the external load balancer 
+
+- name the load balancer as external load balancer
+- opt for our custom VPC
+- select both availablility zones
+- make internet facing
+- aftersetting this load balancer and target group
+- you can HIT this load balancer and you will see the output
+
+
+# Following are some screenshots of the output
+
 
