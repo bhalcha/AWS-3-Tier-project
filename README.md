@@ -226,5 +226,15 @@ in this step we will create EC2 instance for app tier
 
 
 # Following are some screenshots of the output
+<img width="1280" alt="Screenshot 2025-06-13 at 2 54 46 PM" src="https://github.com/user-attachments/assets/577dfe57-fb13-4c15-a19e-dc54ab443362" />
+
+
+<img width="1134" alt="Screenshot 2025-06-13 at 2 53 58 PM" src="https://github.com/user-attachments/assets/46254f8a-8b19-462c-922d-9ad54c8bd915" />
+
+<img width="1280" alt="Screenshot 2025-06-13 at 2 55 24 PM" src="https://github.com/user-attachments/assets/ab15a135-a006-4931-a222-dd61ccec1114" />
+
+
+
+
 
 
